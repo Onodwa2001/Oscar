@@ -116,3 +116,73 @@ footer {
     text-align: center;
 }
 
+
+
+/* ================================================ */
+/* LOGIN AND SIGN UP PAGES */
+/* ================================================ */
+
+.login-form {
+    background-color: bisque;
+    width: fit-content;
+    margin: auto auto;
+    padding: 30px;
+    
+}
+
+.login-form h1 {
+    margin-left: 20px;
+}
+
+.login-form form {
+    display: block;
+}
+
+.login-form form div {
+    margin: 20px;
+}
+
+.login-form form input {
+    padding: 8px;
+}
+
+.login-form form button {
+    padding: 8px;
+    background-color: chocolate;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+.signup-form {
+    background-color: bisque;
+    width: fit-content;
+    margin: auto auto;
+    padding: 30px;
+    
+}
+
+.signup-form h1 {
+    margin-left: 20px;
+}
+
+.signup-form form {
+    display: block;
+}
+
+.signup-form form div {
+    margin: 20px;
+}
+
+.signup-form form input {
+    padding: 8px;
+}
+
+.signup-form form button {
+    padding: 8px;
+    background-color: chocolate;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
