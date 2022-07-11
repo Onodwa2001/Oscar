@@ -1,0 +1,38 @@
+.sell-items-wrapper input {
+    padding: 5px;
+    outline-color: rgb(73, 73, 174);
+}
+
+.sell-items-wrapper textarea {
+    padding: 10px;
+    outline-color: rgb(73, 73, 174);
+}
+
+.sell-items-wrapper {
+    width: fit-content;
+    background-color: rgb(228, 239, 239);
+    margin: 0 auto 0 auto;
+    padding: 30px;
+}
+
+.wrap {
+    padding-top: 30px;
+}
+
+.sell-items-wrapper button {
+    padding: 10px;
+}
+
+.heading-sell {
+    margin-bottom: 30px;
+}
+
+.sell-items-wrapper form div {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 10px;
+}
+
+.sell-items-wrapper form div:last-child {
+    display: block;
+}

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="sell-style.css">
 </head>
 <body>
     <header>
@@ -31,7 +32,46 @@
             </nav>
         </div>
     </header>
-    <main>
+    <main class="sell-main">
+
+        <div class="wrap">
+            <div class="sell-items-wrapper">
+                <div class="heading-sell">
+                    <h1>Give us the details and we'll post it for you</h1>
+                </div>
+    
+                <form action="">
+                    <div class="name">
+                        <label for="">Name of item:</label>
+                        <input type="text" name="name" placeholder="Nike t-shirt" id="">
+                    </div>
+                    <div class="price">
+                        <label for="">Price ZAR:</label>
+                        <input type="number" name="price" placeholder="450.00" min="10" id="">
+                    </div>
+                    <div class="upload-image">
+                        <label for="">Upload Image:</label>
+                        <input type="image" src="" alt="">
+                    </div>
+                    <div class="message">
+                        <label for="">Product description:</label>
+                        <textarea name="" style="resize: none;" id="" placeholder="Male - Size 14-15..." cols="30" rows="5"></textarea>
+                    </div>
+                    <div class="number">
+                        <label for="">Cellphone number:</label>
+                        <input type="tel" name="" placeholder="e.g +27..." id="">
+                    </div>
+                    <div class="other-contact-details">
+                        <label for="">Other contact details:</label>
+                        <input type="text" name="" placeholder="instagram, facebook, twitter..." id="">
+                    </div>
+                    <div class="sell-btn">
+                        <button>Post Item</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
 
     </main>
 

@@ -11,12 +11,12 @@ app.use(express.json());
 
 app.listen(8000);
 
-dbURI = 'mongodb+srv://tom123:Graphic4@mynewcluster.coxgo.mongodb.net/user-cluster?retryWrites=true&w=majority';
-mongoose.connect(dbURI)
-    .then((result) => {
+// dbURI = 'mongodb+srv://tom123:Graphic4@mynewcluster.coxgo.mongodb.net/user-cluster?retryWrites=true&w=majority';
+// mongoose.connect(dbURI)
+//     .then((result) => {
 
-    })
-    .catch((err) => console.log(err));
+//     })
+//     .catch((err) => console.log(err));
 
 
 // Routes
