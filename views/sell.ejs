@@ -40,30 +40,30 @@
                     <h1>Give us the details and we'll post it for you</h1>
                 </div>
     
-                <form action="">
+                <form action="/sell" method="POST">
                     <div class="name">
                         <label for="">Name of item:</label>
-                        <input type="text" name="name" placeholder="Nike t-shirt" id="">
+                        <input type="text" name="productName" placeholder="Nike t-shirt" id="">
                     </div>
                     <div class="price">
                         <label for="">Price ZAR:</label>
-                        <input type="number" name="price" placeholder="450.00" min="10" id="">
+                        <input type="text" name="price" placeholder="450.00" id="">
                     </div>
                     <div class="upload-image">
                         <label for="">Upload Image:</label>
-                        <input type="image" src="" alt="">
+                        <input type="file" name="image" alt="Submit" width="48" height="48">
                     </div>
                     <div class="message">
                         <label for="">Product description:</label>
-                        <textarea name="" style="resize: none;" id="" placeholder="Male - Size 14-15..." cols="30" rows="5"></textarea>
+                        <textarea name="description" style="resize: none;" id="" placeholder="Male - Size 14-15..." cols="30" rows="5"></textarea>
                     </div>
                     <div class="number">
                         <label for="">Cellphone number:</label>
-                        <input type="tel" name="" placeholder="e.g +27..." id="">
+                        <input type="tel" name="cellNumber" placeholder="e.g +27..." id="">
                     </div>
                     <div class="other-contact-details">
                         <label for="">Other contact details:</label>
-                        <input type="text" name="" placeholder="instagram, facebook, twitter..." id="">
+                        <input type="text" name="otherDetails" placeholder="instagram, facebook, twitter..." id="">
                     </div>
                     <div class="sell-btn">
                         <button>Post Item</button>
