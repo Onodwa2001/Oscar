@@ -21,7 +21,7 @@ const postSchema = new Schema({
         type: String
     },
     image: {
-        type: Buffer,
+        type: String,
         required: true
     }
 }, { timestamps: true });

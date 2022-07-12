@@ -40,11 +40,14 @@
                 <div class="all-posts">
                     <div class="post-title">
                         <a href="/buy/details/<%= element._id %>">
+                            <img src="<%= element.image %>" alt="image_of_product">
                             <h2><%= element.productName  %> </h2>
                             <p>ZAR <%= Number((element.price).toFixed(2)).toLocaleString() %> </p>
+                            
                         </a>
                     </div>
                 </div>
+                <a href="/delete/<%= element._id %>">Del</a>
     
             <% }); %>
         <% } else { %>

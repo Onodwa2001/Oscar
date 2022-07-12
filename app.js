@@ -2,12 +2,15 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth_routes');
+const multer = require('multer');
+const fs = require('fs');
 
 // db objects
 const Post = require('./model/Post');
 
 app.set('view engine', 'ejs');
 
+app.use(express.static('uploads'));
 app.use(express.static('static_files'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -20,7 +23,6 @@ mongoose.connect(dbURI)
 
     })
     .catch((err) => console.log(err));
-
 
 // Routes
 
@@ -44,9 +46,26 @@ app.get('/sell', (req, res) => {
     res.render('sell.ejs');
 });
 
-// Other handlers
-app.post('/sell', (req, res) => {
-    const post = new Post(req.body);
+// upload images
+let storage = multer.diskStorage({ 
+    destination: (req, file, cb) => cb(null, './uploads'),
+    filename: (req, file, cb) => cb(null, file.fieldname + '_' + Date.now() + file.originalname)
+});
+
+let upload = multer({
+    storage: storage
+}).single('image');
+
+// save and post your product
+app.post('/sell', upload, (req, res) => {
+    const post = new Post({
+        productName: req.body.productName,
+        price: req.body.price,
+        description: req.body.description,
+        cellNumber: req.body.cellNumber,
+        otherDetails: req.body.otherDetails,
+        image: req.file.filename
+    });
 
     post.save()
         .then((result) => {
@@ -63,6 +82,22 @@ app.get('/buy/details/:id', (req, res) => {
             res.render('details.ejs', { result });
         })
         .catch((err) => console.log(err));
+});
+
+// Delete user routes
+app.get('/delete/:id', (req, res) => {
+    const prod_id = req.params.id;
+
+    Post.findByIdAndRemove(prod_id, (err, result) => {
+        if (result.image != '') {
+            try {
+                fs.unlinkSync('./uploads/' + result.image);
+            } catch(err) {
+                console.log(err);
+            }
+        } 
+        res.redirect('/');
+    });
 });
 
 app.use(authRoutes);
