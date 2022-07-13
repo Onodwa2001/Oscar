@@ -16,15 +16,30 @@
             <form action="/signup" method="POST">
                 <div class="email">
                     <input type="text" name="email" placeholder="email" id="">
+                    <div class="email error"></div>
                 </div>
                 <div class="password">
                     <input type="password" name="password" placeholder="password" id="">
+                    <div class="password error"></div>
                 </div>
                 <div class="btn">
                     <button>Signup</button>
                 </div>
             </form>
         </div>
+
+        <script>
+            const form = document.querySelector('form');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const email = form.email.value;
+                const password = form.password.value;
+
+                console.log(email, password);
+            });
+        </script>
 
     </main>
 
@@ -33,5 +48,6 @@
 
         &copy Copyrights Reserved | <script> document.write(new Date().getFullYear()); </script>
     </footer>
+
 </body>
 </html>

@@ -96,7 +96,7 @@ app.get('/delete/:id', (req, res) => {
                 console.log(err);
             }
         } 
-        res.redirect('/');
+        res.redirect('/buy');
     });
 });
 
