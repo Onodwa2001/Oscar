@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth_routes');
 const multer = require('multer');
+const cookieParser = require('cookie-parser');
 const fs = require('fs');
 
 // db objects
@@ -13,6 +14,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('uploads'));
 app.use(express.static('static_files'));
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(express.json());
 
 app.listen(8000);

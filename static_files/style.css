@@ -176,7 +176,15 @@ footer {
 }
 
 .signup-form form input {
-    padding: 8px;
+    padding: 10px;
+    width: 300px;
+    /* outline-width: 12px; */
+}
+
+.signup-form form input:focus {
+    outline-width: 1.8px;
+    outline-style: solid;
+    outline-color: rgb(41, 147, 247);
 }
 
 .signup-form form button {
