@@ -6,6 +6,15 @@ let handleError = (err) => {
 
     const errors = { email: '', password: '' };
 
+    // incorrect email
+    if (err.message === 'incorrect email') {
+        errors.email = 'That email is not registered';
+    }
+    // incorrect password 
+    if (err.message === 'incorrect password') {
+        errors.password = 'That password is incorrect';
+    }
+
     if (err.code === 11000) {
         errors['email'] = 'This email already exists';
         return errors;
@@ -50,6 +59,16 @@ module.exports.login_get = (req, res) => {
     res.render('login.ejs');
 }
 
-module.exports.login_post = (req, res) => {
-    console.log(req.body);
+module.exports.login_post = async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const user = await User.login(email, password);
+        const token = createToken(user._id);
+        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
+        res.status(200).json({ user: user._id });
+    } catch(err) {
+        let error = handleError(err);
+        res.status(400).send({ error });
+    }
 }

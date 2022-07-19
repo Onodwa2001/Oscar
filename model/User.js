@@ -1,23 +1,3 @@
-// const mongoose = require('mongoose');
-// const Schema = mongoose.Schema;
-
-// const userSchema = new Schema({
-//     email: {
-//         type: String,
-//         required: true,
-//         unique: true,
-//         lowercase: true
-//     },
-//     password: {
-//         type: String,
-//         required: true,
-//         minlength: 6
-//     }
-// }, { timestamps: true });
-
-// const User = mongoose.model('user', userSchema);
-// module.exports = User;
-
 const mongoose = require('mongoose');
 const { isEmail } = require('validator');
 const Schema = mongoose.Schema;
@@ -50,6 +30,19 @@ UserSchema.pre('save', async function(next) {
     this.password = await bcrypt.hash(this.password, salt);
     next();
 });
+
+// static method to log in users
+UserSchema.statics.login = async function(email, password) {
+    const user = await this.findOne({ email });
+    if (user) {
+        const auth = await bcrypt.compare(password, user.password);
+        if (auth) {
+            return user;
+        }
+        throw Error('incorrect password');
+    }
+    throw Error('incorrect email');
+}
 
 const Users = mongoose.model('user', UserSchema);
 module.exports = Users;
